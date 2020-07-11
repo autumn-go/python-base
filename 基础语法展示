@@ -1,1 +1,140 @@
+###1. 基本类型和运算符
+'''
+# 定义了一个数字 3
+    3  # => 3
 
+    # 基本计算
+    1 + 1  # => 2
+    8 - 1  # => 7
+    10 * 2  # => 20
+    35 / 5  # => 7
+
+    # 当除数和被除数都为整型时，除 这个操作只求整数 
+    # ( python2.x语法。经测试，Python3.x 已经全部当做浮点数处理,还会计算小数)
+    5 / 2  # => 2
+    10/-3 #python3的结果为-3.3333333333333335 python2 结果为-4
+    10/3 #python3的结果为3.3333333333333335 python2 结果为3 
+    #由上面两个结果也可以看出，在Python2中，如结果有小数，则会取最近最小整数
+
+
+
+    # 如果我们除数和被除数为浮点型，则Python会自动把结果保存为浮点数
+    2.0  # 这是浮点数
+    11.0 / 4.0  # 这个时候结果就是2.75啦！是不是很神奇？ 
+
+    # 当用‘//’进行计算时，python3不会全部单做浮点数处理.
+    5 // 3   # => 1
+    5.0 // 3.0 # => 1.0 
+    -5 // 3  # => -2
+    -5.0 // 3.0 # => -2.0
+
+
+    from __future__ import division # 注可以在通过 __future__  关键字
+                                    # 在python2中引入python3 特性
+    11/4    # => 2.75  ... 标准除法
+    11//4   # => 2 ... 除后取整
+
+    # 求余数操作
+    7 % 3 # => 1
+
+    # 幂操作 2的4次方
+    2**4 # => 16
+
+    # 先乘除，后加减，口号优先
+    (1 + 3) * 2  # => 8
+
+    # 布尔值操作
+    # 注：or 和 and 两个关键字是大小写敏感的
+    True and False #=> 返回False
+    False or True #=> 返回True
+
+    # 布尔值和整形的关系，除了0外，其他都为真
+    0 and 2 #=> 0
+    -5 or 0 #=> -5
+    0 == False #=> True
+    2 == True #=> False
+    1 == True #=> True
+
+    #  not 操作
+    not True  # => False
+    not False  # => True
+
+    #等值比较 “==”，相等返回值为True ，不相等返回False
+    1 == 1  # => True
+    2 == 1  # => False
+
+    # 非等比较“！=”，如果两个数不相等返回True，相等返回Flase
+    1 != 1  # => False
+    2 != 1  # => True
+
+    # 大于/小于 和等于的组合比较
+    1 < 10  # => True
+    1 > 10  # => False
+    2 <= 2  # => True
+    2 >= 2  # => True
+
+    # Python可以支持多数值进行组合比较，
+           #但只要一个等值为False，则结果为False
+    1 < 2 < 3  # => True
+    2 < 3 < 2  # => False
+
+    # 可以通过 " 或者 '来创建字符串
+    "This is a string."
+    'This is also a string.'
+
+    # 字符串间可以通过 + 号进行相加，是不是简单到爆？
+    "Hello " + "world!"  # => "Hello world!"
+    # 甚至不使用'+'号，也可以把字符串进行连接
+    "Hello " "world!"  # => "Hello world!"
+
+     #可以通过 * 号，对字符串进行复制，比如 ；
+             importantNote = "重要的事情说三遍\n" * 3 
+             print （importantNote）
+            """ 结果为：
+             重要的事情说三遍
+             重要的事情说三遍
+             重要的事情说三遍
+            """
+
+    "Hello" * 3  # => "HelloHelloHello"
+
+    # 字符串可以在任意位置被打断
+    "This is a string"[0]  # => 'T'
+
+    #字符串可以用 %连接，并且可以打印出变量值
+           #（和C/C++ 一样%d 表示整数，%s表示字符串，
+           #但python可以自己进行判断，我们无需太担心这个问题）
+    x = 'apple'
+    y = 'lemon'
+    z = "The items in the basket are %s and %s" % (x,y)
+
+    # 一个新的更好的字符串连接方式是通过.format()函数，推荐使用该方式
+    "{} is a {}".format("This", "placeholder")
+    "{0} can be {1}".format("strings", "formatted")
+    # You can use keywords if you don't want to count.
+    "{name} wants to eat {food}".format(name="Bob", food="lasagna")
+
+    # None是一个对象,None就是None，它是一个特殊的变量
+    None  # => None
+
+    # 在和None进行比较时，不要用“==”操作符，用 “is”
+    "etc" is None  # => False
+    None is None  # => True
+
+
+    #“is"操作符用于对象之间的比较，
+            #对于底层类型进行比较时
+    #不建议用“is”，但对于对象之间的比较，用“is”是最合适的
+    # bool可以用于对任何对象进行判断
+    # 以下这些值是非真的
+    #   - None
+    #   - 各类数值型的0 (e.g., 0, 0L, 0.0, 0j)
+    #   - 空元组、空列表 (e.g., '', (), [])
+    #   - 空字典、空集合 (e.g., {}, set())
+    #   - 其他值请参考：
+    #     https://docs.python.org/2/reference/datamodel.html#object.__nonzero__
+    #
+    # All other values are truthy (using the bool() function on them returns True).
+    bool(0)  # => False
+    bool("")  # => Fal
+'''
